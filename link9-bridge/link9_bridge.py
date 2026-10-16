@@ -318,7 +318,7 @@ def main():
             csv_file.flush()
 
     for line in (stdin_lines() if cfg.stdin else journal_lines(cfg.unit)):
-        m = RX_LINE.match(ANSI.sub("", line))
+        m = RX_LINE.match(ANSI.sub("", line).replace("loraspi: failed to parse: ", "", 1))
         if not m:
             continue
         pkt = m.group("pkt")

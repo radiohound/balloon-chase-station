@@ -22,8 +22,7 @@ or `direwolf-chase.service`.
 
 ## Limits
 
-- Packets Direwolf can't parse (for example SSIDs above 15, such as K6ATV-22)
-  are logged by Direwolf without RSSI/SNR, so they are not forwarded.
+- Packets Direwolf can't parse (for example SSIDs above 15, such as K6ATV-22) are forwarded too: loraspi.c prints RSSI/SNR on its "failed to parse" line (radiohound/direwolf, feature/lora-spi). Direwolf still can't gate them to APRS-IS.
 - The SX1262 driver doesn't report frequency error; `0 Hz` is sent.
 - This receiver is set to SF12 only (433.775 MHz, BW125, CR4/5, sync 0x12),
   so SF7 traffic is never heard here.
@@ -66,3 +65,4 @@ sudo systemctl daemon-reload
 
 - 2026-10-16: Initial version.
 - 2026-10-16: Service now sends CA2RXU APP-NAME, since link9 dropped the original label.
+- 2026-10-16: Also forward packets Direwolf rejects (SSID > 15), using RSSI/SNR now printed on loraspi's failed-parse line.
