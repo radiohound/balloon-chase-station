@@ -54,8 +54,6 @@ journalctl -u direwolf-chase -o cat | \
 
 link9 can take 10-15 minutes before a reception shows up. The `source_ip=me&raw=true` view did not show our messages even when link9 had stored them; check with `rx_callsign=K6ATV-10&raw=true` instead.
 
-link9 can take 10-15 minutes before a reception shows up. The `source_ip=me&raw=true` view did not show our messages even when link9 had stored them; use `rx_callsign=K6ATV-10&raw=true` instead.
-
 ## Remove
 
 ```bash
