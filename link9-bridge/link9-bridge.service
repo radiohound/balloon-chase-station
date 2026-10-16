@@ -9,7 +9,7 @@ User=walter
 SupplementaryGroups=systemd-journal
 ExecStart=/usr/bin/python3 -u /home/walter/balloon-chase-station/link9-bridge/link9_bridge.py \
     --callsign K6ATV-10 --lat 37.01933 --lon -121.61800 \
-    --unit direwolf-chase \
+    --unit direwolf-chase --app-name CA2RXU_LoRa_iGate_4.0.4 \
     --csv /home/walter/dw-logs/lora-rx.csv
 Restart=always
 RestartSec=10

@@ -28,8 +28,7 @@ or `direwolf-chase.service`.
 - This receiver is set to SF12 only (433.775 MHz, BW125, CR4/5, sync 0x12),
   so SF7 traffic is never heard here.
 - Packets heard while the bridge is restarting (about 10 s) are not sent.
-- The syslog APP-NAME is `Direwolf_loraspi_link9_bridge_1.0`, not CA2RXU's.
-  If link9 ignores these lines, `--app-name` can be changed.
+- The service sends APP-NAME `CA2RXU_LoRa_iGate_4.0.4`; link9 ignored lines labeled `Direwolf_loraspi_link9_bridge_1.0` (the script default).
 
 ## Install (on the Pi)
 
@@ -53,6 +52,8 @@ journalctl -u direwolf-chase -o cat | \
 
 `https://lora.link9.net/api/messages?rx_callsign=K6ATV-10&limit=20`
 
+link9 can take 10-15 minutes before a reception shows up. The `source_ip=me&raw=true` view did not show our messages even when link9 had stored them; use `rx_callsign=K6ATV-10&raw=true` instead.
+
 ## Remove
 
 ```bash
@@ -64,3 +65,4 @@ sudo systemctl daemon-reload
 ## Change log
 
 - 2026-10-16: Initial version.
+- 2026-10-16: Service now sends CA2RXU APP-NAME, since link9 dropped the original label.
